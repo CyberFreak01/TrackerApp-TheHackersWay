@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#01114B"
+    app:layoutDescription="@xml/activity_splash_scene2"
+    tools:context=".Splash_Activity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bg"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:background="@drawable/splashbg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/kali"
+        tools:layout_editor_absoluteX="79dp"
+        tools:layout_editor_absoluteY="301dp" />
+
+    <TextView
+        android:id="@+id/textView16"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="KALI LINUX TOOLS"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textColorHighlight="@color/teal_200"
+        android:textStyle="normal"
+        android:fontFamily="@font/cracked"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bg"
+        app:layout_constraintVertical_bias="0.5" />
+
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">CardviewTesting</string>
+    <string name="iplogger">An IP grabber is a tool that can extract an IP address whenever someone clicks on a specific link.
+    </string>
+    <string name="deviceinfo">This tool logs the information about the user\'s Device like the OS, platform and version simply by sending a link.</string>
+    <string name="link_input">  eg. https://instagram.com</string>
+    <string name="location">This tool can be used to grab the exact geo-coordinates of the victim by sending a link and using some Social Engineering.
+    </string>
+    <string name="link_device_input">eg. https://youtube.com</string>
+    <string name="title_activity_deviceinfo">deviceinfo</string>
+    <string name="wireguard">Location tracker requires Wireguard App to work properly.</string>
+    <string name="wiretext">Enter the config in  App and Connect  to Wireguard</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="open_nav">Open Navigation Drawer</string>
+    <string name="close_nav">Close Navigation Drawer</string>
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
