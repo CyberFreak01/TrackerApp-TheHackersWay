@@ -51,11 +51,11 @@ public class location_data_main extends AppCompatActivity {
 String link=null;  String linkn_new=null;
 Spinner spinner;
     private static final String USER_AGENT = "Mozilla/5.0";
-    private static final String POST_URL ="https://is.gd/create.php?format=simple";
+    private static final String POST_URL ="https://is.gd/create.php?format=simple"; // Link Shortner api name changer
 Button button;Context context=this;
     private ProgressBar loadingPB;
 private MyHTTPD server;
-TextView textView,data,text1,text13;
+TextView textView,data,text1,text13,gmap;
 private ImageView img;
 String[] templates={"Near You","GDrive","Google ReCaptcha"};
     @SuppressLint("MissingInflatedId")
@@ -67,7 +67,7 @@ String[] templates={"Near You","GDrive","Google ReCaptcha"};
 //        Intent intent = getIntent();
 //        link = intent.getStringExtra("message_key");
         File file1 = new File(getFilesDir(), "link.txt");
-        link=readFile(file1);
+        link=readFile(file1);   // Extracting link from Wireguard config file
         String lat=null,lon=null;
         Intent intent1 = new Intent(location_data_main.this, MyForegroundService.class);
         startService(intent1);
@@ -82,6 +82,7 @@ String[] templates={"Near You","GDrive","Google ReCaptcha"};
         text1.setVisibility(View.GONE);
         spinner=findViewById(R.id.spinner);
         loadingPB=findViewById(R.id.progressBar2);
+        gmap=findViewById(R.id.textView20);
         data.setVisibility(View.GONE);
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(location_data_main.this, android.R.layout.simple_spinner_item,templates);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -158,24 +159,21 @@ String[] templates={"Near You","GDrive","Google ReCaptcha"};
                 String final_uri=temp+afterHttps;
                 textView.setText(final_uri);
 
-                Toast.makeText(location_data_main.this, "Data added to API", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(location_data_main.this, "Data added to API", Toast.LENGTH_SHORT).show();
 
             }
         }, new com.android.volley.Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 // method to handle errors.
-                Toast.makeText(location_data_main.this, "Failed to get Response", Toast.LENGTH_SHORT).show();            }
+//                Toast.makeText(location_data_main.this, "Failed to get Response", Toast.LENGTH_SHORT).show();
+            }
         }) {
             @Override
             protected Map<String, String> getParams() {
 
                 Map<String, String> params = new HashMap<String, String>();
-
-
                 params.put("url", link);
-
-
                 return params;
             }
         };
@@ -222,6 +220,7 @@ String[] templates={"Near You","GDrive","Google ReCaptcha"};
                             loadingPB.setVisibility(View.GONE);
                             text1.setVisibility(View.GONE);
                             img.setVisibility(View.VISIBLE);
+                            gmap.setVisibility(View.VISIBLE);
 
                             img.setOnClickListener(new View.OnClickListener() {
                                 @Override

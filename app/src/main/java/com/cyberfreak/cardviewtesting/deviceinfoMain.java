@@ -32,9 +32,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class deviceinfoMain extends AppCompatActivity {
-    private TextView responseTV,textView;
+    private TextView responseTV,textView,editText;
     private ProgressBar loadingPB;
-    private EditText editText,link;
+    private EditText link;
     private CardView cardView;
     private Button button1;
     private Context context;
@@ -42,7 +42,7 @@ public class deviceinfoMain extends AppCompatActivity {
     String shortlink=null;
     private static final String USER_AGENT = "Mozilla/5.0";
     private static final String POST_URL ="https://is.gd/create.php?format=simple";
-    private static final String iplogger_url = "https://api.iplogger.org/create/shortlink/token=api_E6ZZcI4Fe6cuFUvbd2sYFOjmh10T7Ci9";
+    private static final String iplogger_url = "https://api.iplogger.org/create/shortlink/token=api_srDULEjNMdbPsTla9bzdYBjCUYHY7psp";
     private String POST_PARAMS = "url="+shortlink;
     int i=0;String real_url=null;
 
@@ -122,7 +122,6 @@ public class deviceinfoMain extends AppCompatActivity {
                 i++;
 
                 // on below line we are displaying a success toast message.
-                Toast.makeText(deviceinfoMain.this, "Data added to API", Toast.LENGTH_SHORT).show();
                 editText.setText("Send this link to the target user :");
                 String shortLink = null;
                 try {

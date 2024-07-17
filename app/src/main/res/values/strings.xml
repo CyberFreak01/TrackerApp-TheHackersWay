@@ -1,10 +1,19 @@
 <resources>
-    <string name="app_name">CardviewTesting</string>
+    <string name="app_name">KaliLinuxTools</string>
     <string name="iplogger">An IP grabber is a tool that can extract an IP address whenever someone clicks on a specific link.
     </string>
     <string name="deviceinfo">This tool logs the information about the user\'s Device like the OS, platform and version simply by sending a link.</string>
     <string name="link_input">  eg. https://instagram.com</string>
-    <string name="location">This tool can be used to grab the exact geo-coordinates of the victim by sending a link and using some Social Engineering.
+    <string name="loc">This tool can be used to grab the exact geo-coordinates of a device by sending a link and using some Social Engineering.
+    </string>
+    <string name="privacy">
+This app is made for Educational and Fun purposes. This app is not intended to harm someone\'s devices.\n
+This app shows how to prevent our devices from being attacked by Threat Actors. This app demonstrates how attackers can target your devices and the way to prevent our devices from such actions.\n\n
+If you think there are any features that violates Google Policy or Encourage any type of illegal activities, Please Contact Us through our Email in About Section.\n\n
+We do not collect any sensitive user data or information.The main purpose of this app is to spread awareness about emerging Cyber Threats.
+This app does not contain any Ads , its solely build for educational purposes.\n\n
+We do not permit any user to harm anyone\'s device without their prior permission.\n\n
+This app is solely for educational, fun, and cyber awareness purposes and doesn\'t support any type of malicious activities.
     </string>
     <string name="link_device_input">eg. https://youtube.com</string>
     <string name="title_activity_deviceinfo">deviceinfo</string>

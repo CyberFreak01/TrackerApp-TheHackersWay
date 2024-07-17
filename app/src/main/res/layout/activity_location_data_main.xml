@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/img2"
     android:textAlignment="gravity"
-    tools:context=".location_data_main">
+    tools:context=".location_data_main"
+    android:background="@color/black">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img2"
+    >
 
     <TextView
         android:id="@+id/textView11"
-        android:layout_width="376dp"
+        android:layout_width="match_parent"
         android:layout_height="67dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/loveglitch"
         android:gravity="center"
-        android:text="Location Grabber"
+        android:text="Seeker"
         android:textColor="@color/white"
         android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,7 +64,6 @@
         android:text="Start Server"
         android:textSize="12sp"
         app:backgroundTint="@color/teal_200"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner" />
@@ -96,6 +100,7 @@
             android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:background="@drawable/imput_link_border"
+            android:layout_gravity="center"
             android:textAlignment="center"
             android:textColor="@color/teal_200"
             android:textIsSelectable="true"
@@ -137,7 +142,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
@@ -145,7 +150,7 @@
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="15dp"
                 android:ems="10"
                 android:background="@drawable/locationdata"
                 android:fontFamily="@font/josephins"
@@ -157,14 +162,26 @@
                 android:id="@+id/imageView3"
                 android:layout_width="wrap_content"
                 android:layout_height="150dp"
-                android:layout_marginTop="40dp"
+
                 android:visibility="visible"
 
                 app:srcCompat="@drawable/maps" />
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textAlignment="textEnd"
+            android:layout_marginRight="20dp"
+            android:textColor="@color/hacker_green"
+            android:text="Open In Google Maps"
+            android:visibility="gone"
+            />
+
     </LinearLayout>
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

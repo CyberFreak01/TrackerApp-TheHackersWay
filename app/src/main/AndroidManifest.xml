@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:versionCode="1"
+    android:versionName="kalirelease"
+    >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -18,6 +21,13 @@
         android:theme="@style/Theme.CardviewTesting"
         tools:targetApi="31">
         <activity
+            android:name=".PrivacyPolicy"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".About"
             android:exported="false">
             <meta-data
@@ -28,13 +38,6 @@
             android:name=".MainActivity"
             android:exported="false"
             android:theme="@style/Theme.Design.NoActionBar">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".Map_Activity"
-            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -59,13 +62,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity
-            android:name=".MyHTTPD"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+
         <activity
             android:name=".locationtracker"
             android:exported="false">
@@ -95,23 +92,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".deviceinfo"
-            android:exported="false"
-            android:label="@string/title_activity_deviceinfo"
-            android:theme="@style/Theme.CardviewTesting.NoActionBar">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".user_details"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".HttpURLConnectionExample"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

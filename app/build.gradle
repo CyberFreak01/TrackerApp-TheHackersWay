@@ -9,9 +9,9 @@ android {
     defaultConfig {
         applicationId "com.cyberfreak.cardviewtesting"
         minSdk 23
-        targetSdk 32
-        versionCode 1
-        versionName "1.0"
+        targetSdk 33
+        versionCode 4
+        versionName "4.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -29,6 +29,7 @@ android {
     buildFeatures {
         viewBinding true
     }
+    buildToolsVersion '33.0.1'
 }
 
 dependencies {

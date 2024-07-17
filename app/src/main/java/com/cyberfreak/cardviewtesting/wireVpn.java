@@ -10,6 +10,7 @@ import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
@@ -19,6 +20,8 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -49,6 +52,10 @@ import java.util.regex.Pattern;
 
 public class wireVpn extends AppCompatActivity {
 private Button button1,button2,button3,button4,button5,button6;
+TextView config;
+ImageView img;
+    private static final String PREFS_NAME = "NewPref";
+    private static final String KEY_POLICY_ACCEPTED = "policy_accepted";
 private CardView cardView;
     String tunnel_link=null;
     String res = null;
@@ -61,6 +68,8 @@ private CardView cardView;
         button3=findViewById(R.id.button7);
         button4=findViewById(R.id.button5);
         cardView=findViewById(R.id.card1);
+        config=findViewById(R.id.gen_config);
+        img=findViewById(R.id.imageView7);
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,6 +78,14 @@ private CardView cardView;
                         "https://play.google.com/store/apps/details?id=com.wireguard.android"));
                 intent.setPackage("com.android.vending");
                 startActivity(intent);
+            }
+        });
+
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://youtu.be/H6m-5DiqkeE"));
+                    wireVpn.this.startActivity(webIntent);
             }
         });
 
@@ -119,6 +136,9 @@ private CardView cardView;
             @Override
             public void onClick(View v) {
                 dialog1.show();
+                SharedPreferences prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+                prefs.edit().putBoolean(KEY_POLICY_ACCEPTED, true).apply();
+
                 Button Yes1=dialog1.findViewById(R.id.button9);
                 Yes1.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -235,5 +255,27 @@ private CardView cardView;
         Intent intent1 = new Intent(wireVpn.this, location_data_main.class);
         intent1.putExtra("message_key",tunnel_link);
         startActivity(intent1);
+    }
+
+    @SuppressLint({"ResourceAsColor", "SetTextI18n"})
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Check SharedPreferences for policy acceptance
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        boolean policyAccepted = prefs.getBoolean(KEY_POLICY_ACCEPTED, false);
+
+        // If policy is accepted, go directly to the main activity
+        if (policyAccepted) {
+            button2.setBackgroundColor(androidx.cardview.R.color.cardview_dark_background);
+            config.setText("Open WireGuard App and import Vpn.conf from Downloads(if not done).Make sure it is turned On.");
+            button2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(wireVpn.this, "Already Generated", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 }

@@ -10,6 +10,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity{
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_nav,R.string.close_nav);
+
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 //  ---------------------------------------------------------
@@ -66,12 +68,13 @@ public class MainActivity extends AppCompatActivity{
                     }
 
                     case R.id.nav_guide:{
-                        Intent intent = new Intent(MainActivity.this, About.class);
-                        startActivity(intent);
+                        Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://youtu.be/H6m-5DiqkeE"));
+                        MainActivity.this.startActivity(webIntent);
                         break;
                     }
                     case R.id.nav_about:{
-                        Toast.makeText(MainActivity.this, "About", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity.this, About.class);
+                        startActivity(intent);
                         break;
                     }
                 }

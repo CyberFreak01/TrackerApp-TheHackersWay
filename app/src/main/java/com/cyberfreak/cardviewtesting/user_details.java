@@ -49,7 +49,7 @@ public class user_details extends AppCompatActivity {
     private void GetUserDetails(String id) {
         // url to post our data
         loadingPB = findViewById(R.id.progressBar);
-        String url = "https://api.iplogger.org/logger/visitors/token=api_E6ZZcI4Fe6cuFUvbd2sYFOjmh10T7Ci9";
+        String url = "https://api.iplogger.org/logger/visitors/token=api_srDULEjNMdbPsTla9bzdYBjCUYHY7psp";
         loadingPB.setVisibility(View.VISIBLE);
         userdetails=findViewById(R.id.victim_details);
         data=findViewById(R.id.data);

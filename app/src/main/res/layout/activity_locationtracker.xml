@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ipgrabberbg"
     tools:context=".locationtracker">
-
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <TextView
         android:id="@+id/textView"
-        android:layout_width="389dp"
-        android:layout_height="152dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginRight="20dp"
         android:fontFamily="@font/poppinsmed"
-        android:text="@string/location"
+        android:text="@string/loc"
         android:textColor=" #00FF00"
         android:textColorHighlight="@color/teal_200"
         android:textSize="24sp"
@@ -43,7 +45,7 @@
         android:layout_height="110dp"
         android:fontFamily="@font/loveglitch"
         android:gravity="center"
-        android:text="Location Tracker"
+        android:text="Seeker"
         android:textColor="@color/teal_200"
         android:textSize="60dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
@@ -70,3 +72,4 @@
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
